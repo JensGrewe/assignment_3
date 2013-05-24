@@ -7,7 +7,11 @@ public class AgedBrie extends ItemWithBehaviour {
 
 	public void updateQuality() {
 		sellIn--;
+		if (sellIn <= 0)
+			quality = quality +2;
+		else
+			quality++;
 		
-		quality++;
+		quality = capQuality(quality);
 	}
 }

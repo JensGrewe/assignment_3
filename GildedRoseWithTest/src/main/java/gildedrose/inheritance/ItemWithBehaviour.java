@@ -19,5 +19,12 @@ public class ItemWithBehaviour extends Item{
 			 quality -= 2;
 		 else
 		 quality--;
+		 quality = capQuality(quality);
+	}
+	
+	public int capQuality(int myQuality){
+		myQuality =  myQuality < 0 ? 0 : myQuality;
+		myQuality = myQuality > 50 ? 50 : myQuality;
+		return myQuality;
 	}
 }

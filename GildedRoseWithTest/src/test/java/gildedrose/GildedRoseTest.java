@@ -27,7 +27,7 @@ import org.junit.runners.Parameterized.Parameters;
  */
 @RunWith(Parameterized.class)
 public abstract class GildedRoseTest {
-	public static final boolean INCLUDE_CONJURED_TEST_CASES = false;
+	public static final boolean INCLUDE_CONJURED_TEST_CASES = true;
 
 	@Parameters
 	public static Collection<Object[]> data() {
@@ -66,7 +66,7 @@ public abstract class GildedRoseTest {
 
 						{
 								"- The Quality of an item is never more than 50 TBD: This does not work in the original version!",
-								"", 5, 55, 4, 54 },
+								"", 5, 55, 4, 50 },
 						{
 								"- \"Sulfuras\", I being a legendary item, never has to be sold or decreases in Quality",
 								"Sulfuras, Hand of Ragnaros", 0, 80, 0, 80 },

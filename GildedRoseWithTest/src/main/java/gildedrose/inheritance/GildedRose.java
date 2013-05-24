@@ -38,8 +38,13 @@ public class GildedRose {
 			((ItemWithBehaviour)item).updateQuality();
 	}
 
-	public static ItemWithBehaviour createItem(String name, int sellIn,
-			int quality) {
+	public static ItemWithBehaviour createItem(String name, int sellIn, int quality) {
+		if (name.contains("Conjured"))
+			return new Conjured (name,sellIn, quality);
+		if (name.contains("Backstage passes to a TAFKAL80ETC concert"))
+			return new BackstagPasses (name,sellIn,quality);
+		if (name.contains("Sulfuras, Hand of Ragnaros"))
+			return new ItemWithNoBehaviour(name,sellIn,quality);
 		if (name.contains("Aged Brie"))
 			return new AgedBrie(name,sellIn,quality);
 		return new ItemWithBehaviour(name,sellIn,quality);
