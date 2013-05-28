@@ -16,13 +16,24 @@ public class UpdateStrategy {
 		item.setQuality(quality);
 		item.setSellIn(sellIn);	
 	}
+	
+	
 	public int calculateNewQuality(int quality, int sellIn) {
-		return quality-1;
+		if (sellIn < 0)
+			quality =  quality-2;
+		else
+			quality =  quality-1;
+		quality = capQuality(quality);
+		return quality;
 	}
 	public int calculateNewSellIn(int oldSellIn){
 		return oldSellIn-1;
 	}
 
-	
+	public int capQuality(int myQuality){
+		myQuality =  myQuality < 0 ? 0 : myQuality;
+		myQuality = myQuality > 50 ? 50 : myQuality;
+		return myQuality;
+	}
 
 }

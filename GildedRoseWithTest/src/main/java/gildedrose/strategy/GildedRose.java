@@ -1,5 +1,10 @@
 package gildedrose.strategy;
 
+import gildedrose.inheritance.AgedBrie;
+import gildedrose.inheritance.BackstagPasses;
+import gildedrose.inheritance.Conjured;
+import gildedrose.inheritance.ItemWithBehaviour;
+import gildedrose.inheritance.ItemWithNoBehaviour;
 import gildedrose.original.Item;
 
 import java.util.ArrayList;
@@ -41,7 +46,14 @@ public class GildedRose {
 	}
 
 	public static UpdateStrategy getUpdateStrategyForItem(Item item) {
-		// TODO this has to return a matching strategy somehow.
+		if (item.name.contains("Conjured"))
+			return new UpdateConjured();
+		if (item.name.contains("Backstage passes to a TAFKAL80ETC concert"))
+			return new UpdateBackstagePasses();
+		if (item.name.contains("Sulfuras, Hand of Ragnaros"))
+			return new UpdateNothing();
+		if (item.name.contains("Aged Brie"))
+			return new UpdateAgedBrie();
 		return new UpdateStrategy();
 	}
 
