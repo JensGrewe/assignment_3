@@ -34,21 +34,23 @@ public class GildedRose {
 }
 
 	public static void updateQuality() {
-		for (Item item : items)
+		for (Item item : items){
+
+			if (item.getName().contains("Conjured"))
+				((Conjured)item).updateQuality();
+			if (item.getName().contains("Backstage passes to a TAFKAL80ETC concert"))
+				((BackstagPasses)item).updateQuality();
+			if (item.getName().contains("Sulfuras, Hand of Ragnaros"))
+				((ItemWithNoBehaviour)item).updateQuality();
+			if (item.getName().contains("Aged Brie"))
+				((AgedBrie)item).updateQuality();
+
 			((ItemWithBehaviour)item).updateQuality();
+		}
 	}
 
 	public static ItemWithBehaviour createItem(String name, int sellIn, int quality) {
-		if (name.contains("Conjured"))
-			return new Conjured (name,sellIn, quality);
-		if (name.contains("Backstage passes to a TAFKAL80ETC concert"))
-			return new BackstagPasses (name,sellIn,quality);
-		if (name.contains("Sulfuras, Hand of Ragnaros"))
-			return new ItemWithNoBehaviour(name,sellIn,quality);
-		if (name.contains("Aged Brie"))
-			return new AgedBrie(name,sellIn,quality);
 		return new ItemWithBehaviour(name,sellIn,quality);
-
 	}
 
 }

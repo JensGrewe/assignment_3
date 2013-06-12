@@ -41,8 +41,10 @@ public class GildedRose {
 		{
 			if (items.get(i).getName().contains( "Conjured")) {
 				items.get(i).setSellIn(items.get(i).getSellIn() - 1);
-				System.out.println("BLUB" + i);
-				items.get(i).setQuality(items.get(i).getQuality() - 2);
+				if (items.get(i).getSellIn() < 0 )
+					items.get(i).setQuality(items.get(i).getQuality() - 4);
+				else
+					items.get(i).setQuality(items.get(i).getQuality() - 2);
 			}        
 			else
 			{

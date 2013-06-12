@@ -30,5 +30,4 @@ public class GildedRoseTestInheritance extends
 	public void callUpdateQuality() {
 		GildedRose.updateQuality();
 	}
-	
 }
